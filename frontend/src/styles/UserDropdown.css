@@ -1,0 +1,180 @@
+:\root\mi-portafolio\frontend\src\styles\UserDropdown.css */
+
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.user-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.user-dropdown-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: white;
+}
+
+.user-avatar.large {
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+}
+
+.user-name {
+  font-weight: 500;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-arrow {
+  transition: transform 0.2s ease;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.user-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  min-width: 280px;
+  z-index: 1000;
+  animation: slideDown 0.2s ease-out;
+}
+
+.dropdown-header {
+  padding: 1rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.user-full-name {
+  font-weight: 600;
+  color: #1a202c;
+  font-size: 0.95rem;
+}
+
+.user-email {
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.admin-badge {
+  display: inline-block;
+  background: #667eea;
+  color: white;
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 0;
+}
+
+.dropdown-items {
+  padding: 0.5rem 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  text-align: left;
+  color: #2d3748;
+  text-decoration: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f7fafc;
+}
+
+.logout-item {
+  color: #e53e3e;
+}
+
+.logout-item:hover {
+  background-color: #fed7d7;
+}
+
+/* Animaciones */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .user-dropdown-menu {
+    right: -1rem;
+    left: -1rem;
+    min-width: auto;
+  }
+  
+  .user-name {
+    display: none;
+  }
+  
+  .user-dropdown-toggle {
+    padding: 0.5rem;
+  }
+}

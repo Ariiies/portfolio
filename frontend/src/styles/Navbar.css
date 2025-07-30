@@ -1,0 +1,407 @@
+/* === ESTILOS DEL NAVBAR === */
+.navbar {
+  position: sticky;
+  top: 1rem;
+  background-color: #2d3748;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  padding: 1rem 2rem;
+  margin: 0 2rem;
+  border-radius: 1rem;
+  border: 1px solid #4a5568;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* === LOGO === */
+.navbar-logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 50px;
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.logo-text {
+  font-family: 'Courier New', monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #63b3ed;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 8px rgba(99, 179, 237, 0.3);
+}
+
+.logo-text.fallback {
+  display: inline;
+}
+
+/* === LOGOS ESPECÍFICOS === */
+.desktop-logo {
+  display: flex;
+}
+
+.mobile-logo {
+  display: none;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.mobile-logo:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-indicator {
+  display: flex;
+  align-items: center;
+  color: #e2e8f0;
+  transition: transform 0.3s ease;
+}
+
+.menu-indicator.open {
+  transform: rotate(180deg);
+}
+
+/* === NAVEGACIÓN DESKTOP === */
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.desktop-nav {
+  display: flex;
+}
+
+/* === SEPARADOR === */
+.nav-separator {
+  width: 1px;
+  height: 24px;
+  background-color: #4a5568;
+  margin: 0 0.5rem;
+}
+
+/* === ENLACES SOCIALES === */
+.nav-social {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  color: #e2e8f0;
+}
+
+.nav-social:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  color: #63b3ed;
+}
+
+/* === BOTONES DE ACCIÓN === */
+.nav-action {
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  text-decoration: none !important;
+}
+
+.cv-download {
+  background: linear-gradient(135deg, #e53e3e, #c53030);
+  color: white !important;
+  border: none;
+}
+
+.cv-download:hover {
+  background: linear-gradient(135deg, #c53030, #9c2626);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(229, 62, 62, 0.4);
+}
+
+.cv-download.compact {
+  padding: 0.4rem 0.7rem;
+  font-size: 0.8rem;
+  gap: 0.4rem;
+}
+
+.contact-btn {
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+  color: white !important;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.contact-btn:hover {
+  background: linear-gradient(135deg, #2d3748, #1a202c);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 85, 104, 0.4);
+}
+
+/* === USUARIO AUTENTICADO === */
+.nav-user {
+  margin-left: 0.5rem;
+}
+
+/* === MENÚ MÓVIL === */
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #2d3748;
+  border: 1px solid #4a5568;
+  border-top: none;
+  border-radius: 0 0 1rem 1rem;
+  transform: translateY(-10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  max-height: 70vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  z-index: 1001; /* ← Asegurar que esté por encima del navbar */
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-content {
+  padding: 1.5rem;
+}
+
+.mobile-section {
+  margin-bottom: 2rem;
+}
+
+.mobile-section:last-child {
+  margin-bottom: 0;
+}
+
+.mobile-section-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #63b3ed;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* === ENLACES SOCIALES MÓVIL === */
+.mobile-social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mobile-social-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  color: #e2e8f0;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative; /* ← Asegurar que sea clickeable */
+  z-index: 1002;     /* ← Más alto que el menú */
+}
+
+.mobile-social-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #63b3ed;
+  transform: translateX(4px);
+}
+
+/* === ACCIONES MÓVIL === */
+.mobile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mobile-action-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  position: relative; /* ← Asegurar que sea clickeable */
+  z-index: 1002;     /* ← Más alto que el menú */
+}
+
+.cv-item {
+  background: linear-gradient(135deg, #e53e3e, #c53030);
+}
+
+.cv-item:hover {
+  background: linear-gradient(135deg, #c53030, #9c2626);
+  transform: translateX(4px);
+}
+
+.contact-item {
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+}
+
+.contact-item:hover {
+  background: linear-gradient(135deg, #2d3748, #1a202c);
+  transform: translateX(4px);
+}
+
+/* === USUARIO MÓVIL === */
+.mobile-user {
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  position: relative; /* ← Asegurar que sea clickeable */
+  z-index: 1002;     /* ← Más alto que el menú */
+}
+
+/* === OVERLAY ARREGLADO === */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); /* ← Menos opaco */
+  z-index: 998; /* ← MENOR que el navbar y menú */
+  pointer-events: auto; /* ← Solo el overlay es clickeable */
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .nav-list {
+    gap: 0.8rem;
+  }
+  
+  .logo-image {
+    height: 45px;
+  }
+  
+  .logo-text {
+    font-size: 1.1rem;
+  }
+}
+
+/* === TABLET === */
+@media (max-width: 768px) {
+  .navbar {
+    margin: 0 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  /* Ocultar elementos desktop */
+  .desktop-logo {
+    display: none !important;
+  }
+  
+  .desktop-nav {
+    display: none !important;
+  }
+  
+  /* Mostrar y centrar logo móvil */
+  .mobile-logo {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1003; /* ← Asegurar que el logo esté por encima */
+  }
+  
+  .logo-image {
+    height: 40px;
+  }
+}
+
+/* === MÓVIL PEQUEÑO === */
+@media (max-width: 480px) {
+  .navbar {
+    margin: 0 0.5rem;
+    padding: 0.75rem;
+  }
+  
+  .logo-image {
+    height: 36px;
+  }
+  
+  .mobile-menu-content {
+    padding: 1rem;
+  }
+  
+  .mobile-section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .mobile-action-item {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  .mobile-social-item {
+    padding: 0.6rem;
+  }
+}
+
+/* === MÓVIL MUY PEQUEÑO === */
+@media (max-width: 320px) {
+  .navbar {
+    margin: 0 0.25rem;
+    padding: 0.5rem;
+  }
+  
+  .logo-image {
+    height: 32px;
+  }
+  
+  .menu-indicator svg {
+    width: 10px;
+    height: 10px;
+  }
+}

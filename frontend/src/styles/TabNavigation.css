@@ -1,0 +1,239 @@
+/* Contenedor principal de tabs */
+.tab-container {
+  width: 100%;
+  min-height: 70vh;
+  margin: 2rem auto;
+  max-width: calc(100% - 1rem);
+  background-color: #2d3748;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid #4a5568;
+  overflow: hidden;
+}
+
+/* Navegación de pestañas */
+.tab-navigation {
+  background-color: #374151;
+  padding: 1.5rem 2rem 0 2rem;
+  border-bottom: 1px solid #4a5568;
+  position: relative;
+}
+
+/* === VISTA DESKTOP - TABS HORIZONTALES === */
+.desktop-tabs {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: -1px;
+}
+
+.tab-button {
+  padding: 1rem 2rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #a0aec0;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+}
+
+.tab-button:hover {
+  background-color: rgba(99, 179, 237, 0.1);
+  color: #63b3ed;
+  border-bottom-color: #63b3ed;
+}
+
+.tab-button.active {
+  background-color: transparent;
+  color: #63b3ed;
+  border-bottom-color: #63b3ed;
+  position: relative;
+}
+
+/* === VISTA MOBILE - DROPDOWN === */
+.mobile-dropdown {
+  display: none;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.dropdown-toggle {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: #4a5568;
+  border: 1px solid #63b3ed;
+  border-radius: 0.5rem;
+  color: #e2e8f0;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+  background-color: #63b3ed;
+  color: #1a202c;
+}
+
+.dropdown-arrow {
+  transition: transform 0.3s ease;
+  color: #63b3ed;
+}
+
+.dropdown-toggle:hover .dropdown-arrow {
+  color: #1a202c;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #2d3748;
+  border: 1px solid #4a5568;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  animation: dropdownSlide 0.2s ease-out;
+}
+
+@keyframes dropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-item {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: transparent;
+  border: none;
+  color: #cbd5e0;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #4a5568;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background-color: #374151;
+  color: #63b3ed;
+}
+
+.dropdown-item.active {
+  background-color: #63b3ed;
+  color: #1a202c;
+  font-weight: 600;
+}
+
+/* Contenido de las pestañas */
+.tab-content {
+  background-color: #2d3748;
+  min-height: 500px;
+  flex: 1;
+}
+
+.content-wrapper {
+  padding: 2.5rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Override para los estilos de sección dentro de tabs */
+.content-wrapper .section {
+  padding: 0;
+  margin: 0;
+}
+
+.content-wrapper .section-title {
+  color: #63b3ed;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.content-wrapper .section-title::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+  .tab-container {
+    margin: 1rem auto;
+    max-width: calc(100% - 0.5rem);
+  }
+  
+  .tab-navigation {
+    padding: 1rem;
+  }
+
+  /* Ocultar tabs desktop y mostrar dropdown mobile */
+  .desktop-tabs {
+    display: none;
+  }
+
+  .mobile-dropdown {
+    display: block;
+  }
+
+  .content-wrapper {
+    padding: 1.5rem;
+  }
+}
+
+/* Ajustes específicos para móvil muy pequeño */
+@media (max-width: 480px) {
+  .tab-navigation {
+    padding: 0.75rem;
+  }
+
+  .content-wrapper {
+    padding: 1rem;
+  }
+
+  .dropdown-toggle {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .dropdown-item {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
