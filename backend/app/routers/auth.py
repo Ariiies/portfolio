@@ -8,9 +8,9 @@ import os
 from dotenv import load_dotenv
 
 # Importaciones necesarias
-from app.database.database import get_db
-from models.Users import UserModel
-from schemas.Users import UserCredentials
+from ..database.database import get_db
+from ..models.Users import UserModel
+from ..schemas.Users import UserCredentials
 
 # --- CARGAR VARIABLES DE ENTORNO ---
 current_file = os.path.abspath(__file__)

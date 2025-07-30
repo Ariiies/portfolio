@@ -4,9 +4,9 @@ from typing import List
 from datetime import datetime
 
 # Importaciones necesarias
-from app.database.database import get_db
-from models.ContactMessage import ContactMessage
-from schemas.ContactMessage import ContactMessageBase, ContactMessageResponse
+from ..database.database import get_db
+from ..models.ContactMessage import ContactMessage
+from ..schemas.ContactMessage import ContactMessageBase, ContactMessageResponse
 
 message_router = APIRouter(
     prefix="/messages", # Prefijo para todas las rutas de este router

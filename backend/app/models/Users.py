@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean, DateTime
-from app.database.database import Base  # Importar Base desde database.py
+from ..database.database import Base  # Importar Base desde database.py
 from datetime import datetime, timezone
 
 # Ya no declaramos Base aquí, la importamos

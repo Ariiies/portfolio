@@ -69,31 +69,25 @@ Base = declarative_base()
 
 def create_database_tables():
     """
-    Crea las tablas en la base de datos con manejo de errores mejorado
+    Crea todas las tablas definidas en los modelos.
+    Importa los modelos para que SQLAlchemy los registre.
     """
     try:
         print("🔄 Creando tablas de la base de datos...")
+
+        from ..models.ContactMessage import ContactMessage
+        from ..models.Users import UserModel
         
-        # Importar modelos
-        from models.Users import UserModel
-        from models.ContactMessage import ContactMessage
-        
-        # Crear tablas
+        # Crear todas las tablas
         Base.metadata.create_all(bind=engine)
-        print("✅ Tablas creadas correctamente.")
-        
-        # Verificar que las tablas se crearon
-        from sqlalchemy import inspect
-        inspector = inspect(engine)
-        table_names = inspector.get_table_names()
-        print(f"📋 Tablas en la base de datos: {table_names}")
+        print("✅ Tablas creadas exitosamente")
         
     except Exception as e:
         print(f"❌ Error al crear tablas: {e}")
         print("📋 Detalles del error:")
         import traceback
         traceback.print_exc()
-        raise
+        raise e
 
 def get_db():
     db = SessionLocal()

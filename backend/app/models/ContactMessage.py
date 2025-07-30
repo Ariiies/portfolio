@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
-from app.database.database import Base  # Importar Base desde database.py
+from ..database.database import Base  # Importar Base desde database.py
 
 
 class ContactMessage(Base):

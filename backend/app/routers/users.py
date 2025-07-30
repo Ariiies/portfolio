@@ -4,10 +4,10 @@ from typing import List
 from passlib.context import CryptContext
 
 # Importaciones necesarias
-from app.database.database import get_db
-from models.Users import UserModel
-from schemas.Users import User, UserCreate, UserUpdate
-from routers.auth import get_current_admin_user  # Importar desde auth
+from ..database.database import get_db
+from ..models.Users import UserModel
+from ..schemas.Users import User, UserCreate, UserUpdate
+from ..routers.auth import get_current_admin_user  # Importar desde auth
 
 user_router = APIRouter(
     prefix="/users",

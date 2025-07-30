@@ -1,23 +1,13 @@
-import sys
-import os
-
-# Añade la carpeta 'backend' al path de Python, para ejecutar desde main.py
-current_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(current_dir)
-sys.path.append(parent_dir)
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
-# Importar la función para crear las tablas
-from app.database.database import create_database_tables
+# === IMPORTACIONES RELATIVAS CONSISTENTES ===
+# Eliminamos la manipulación del sys.path y usamos solo importaciones relativas
+from .database.database import create_database_tables
+from .routers import messages, users, auth
 
-
-# Importar todos los routers
-from app.routers import messages, users, auth
-
-# === MEJORAR: Llamar a la función con manejo de errores ===
+# === Configuración de la base de datos ===
 try:
     print("🚀 Iniciando configuración de la base de datos...")
     create_database_tables()
@@ -25,7 +15,6 @@ try:
 except Exception as e:
     print(f"❌ Error crítico en la base de datos: {e}")
     print("⚠️  La aplicación puede no funcionar correctamente")
-    # No detener la aplicación, continuar con advertencia
 
 app = FastAPI(
     title="API de Mi Portafolio",
@@ -51,6 +40,12 @@ app.include_router(auth.auth_router)
 async def read_root():
     return {"message": "Powered by FastAPI and SQLAlchemy"}
 
+'''
+ # antes se utilizava uvicorn.run directamente aquí, pero solo funcionaba en local
+ o en produccion por problemas con las rutas de importacion.
 if __name__ == "__main__":
-    uvicorn.run('main:app', host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run('app.main:app', host="0.0.0.0", port=8000, reload=True)
+'''
+# Para ejecutar la aplicación, ubicate en backend/ y usa el comando:
+# uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 
