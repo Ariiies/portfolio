@@ -4,3 +4,9 @@ doc.md
 info.docx
 ~$info.docx
 ~WRL1690.tmp
+backend/.env
+frontend/.env
+__pycache__/
+*.pyc
+node_modules/
+frontend/dist/
