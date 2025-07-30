@@ -11,10 +11,11 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
 # Importar la función para crear las tablas
-from database.database import create_database_tables
+from app.database.database import create_database_tables
+
 
 # Importar todos los routers
-from routers import messages, users, auth
+from app.routers import messages, users, auth
 
 # === MEJORAR: Llamar a la función con manejo de errores ===
 try:
