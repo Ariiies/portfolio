@@ -4,7 +4,7 @@ from typing import List
 from datetime import datetime
 
 # Importaciones necesarias
-from database.database import get_db
+from app.database.database import get_db
 from models.ContactMessage import ContactMessage
 from schemas.ContactMessage import ContactMessageBase, ContactMessageResponse
 

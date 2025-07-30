@@ -8,7 +8,7 @@ import os
 from dotenv import load_dotenv
 
 # Importaciones necesarias
-from database.database import get_db
+from app.database.database import get_db
 from models.Users import UserModel
 from schemas.Users import UserCredentials
 

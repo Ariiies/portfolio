@@ -4,7 +4,7 @@ from typing import List
 from passlib.context import CryptContext
 
 # Importaciones necesarias
-from database.database import get_db
+from app.database.database import get_db
 from models.Users import UserModel
 from schemas.Users import User, UserCreate, UserUpdate
 from routers.auth import get_current_admin_user  # Importar desde auth
