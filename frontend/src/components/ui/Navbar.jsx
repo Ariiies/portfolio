@@ -40,7 +40,7 @@ const Navbar = ({ onContactClick }) => {
         </span>
       </div>
 
-      {/* === LOGO MÓVIL (Clickeable como hamburguesa) === */}
+      {/* === LOGO MÓVIL === */}
       <div 
         className="navbar-logo mobile-logo" 
         onClick={toggleMobileMenu}
@@ -107,8 +107,8 @@ const Navbar = ({ onContactClick }) => {
         {/* Botón de descarga CV */}
         <li>
           <a 
-            href="/AriCV_2025.pdf" 
-            download="Luis_Aries_Meza_CV_2025.pdf" 
+            href="/AriCV.pdf" 
+            download="Luis_Aries_Meza_CV.pdf" 
             className="nav-action cv-download compact"
             title="Descargar CV"
           >
@@ -181,8 +181,8 @@ const Navbar = ({ onContactClick }) => {
             <h3 className="mobile-section-title">Acciones</h3>
             <div className="mobile-actions">
               <a 
-                href="/AriCV_2025.pdf" 
-                download="Luis_Aries_Meza_CV_2025.pdf" 
+                href="/AriCV.pdf" 
+                download="Luis_Aries_Meza_CV.pdf" 
                 className="mobile-action-item cv-item"
                 onClick={closeMobileMenu}
               >
