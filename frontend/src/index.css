@@ -21,8 +21,22 @@ body {
   padding: 0 1.5rem;
 }
 
+/* AJUSTE MÓVIL: Padding mínimo para máximo aprovechamiento */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.5rem; /* Padding mínimo en móviles */
+    max-width: 100%; /* Usar todo el ancho disponible */
+  }
+}
+
 .section {
   padding: 3rem 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 1.5rem 0; /* Reducido aún más el espacio vertical */
+  }
 }
 
 .section-title {
@@ -31,6 +45,14 @@ body {
   margin-bottom: 1.5rem;
   color: #63b3ed;
   position: relative;
+}
+
+/* AJUSTE MÓVIL: Títulos más compactos */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem; /* Menos margen inferior */
+  }
 }
 
 .section-title::after {
@@ -49,6 +71,14 @@ body {
   gap: 2rem;
 }
 
+/* AJUSTE MÓVIL: Gap mínimo para aprovechar espacio */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem; /* Gap mínimo entre elementos */
+  }
+}
+
 .card {
   background-color: #2d3748;
   border-radius: 0.75rem;
@@ -56,6 +86,14 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
   border: 1px solid #4a5568;
+}
+
+/* AJUSTE MÓVIL: Padding compacto en cards */
+@media (max-width: 768px) {
+  .card {
+    padding: 1rem; /* Padding más pequeño */
+    border-radius: 0.5rem; /* Border radius más pequeño */
+  }
 }
 
 .card:hover {
@@ -72,12 +110,19 @@ body {
   border-radius: 0;
 }
 
+@media (max-width: 768px) {
+  #about .card,
+  #education .card {
+    padding: 0; /* Sin padding en móviles */
+  }
+}
+
 #about .card:hover,
 #education .card:hover {
   transform: none;
 }
 
-/* Para proyectos, remover recuadros del contenedor principal pero mantener estructura */
+/* Para proyectos */
 #projects .card {
   background-color: transparent;
   border: none;
@@ -85,6 +130,12 @@ body {
   border-radius: 0;
   padding: 1.5rem 0;
   border-bottom: 1px solid #4a5568;
+}
+
+@media (max-width: 768px) {
+  #projects .card {
+    padding: 0.75rem 0; /* Padding vertical mínimo */
+  }
 }
 
 #projects .card:last-child {
@@ -99,6 +150,13 @@ body {
   margin: 0 -1.5rem;
 }
 
+@media (max-width: 768px) {
+  #projects .card:hover {
+    padding: 0.75rem; /* Hover más compacto */
+    margin: 0 -0.5rem; /* Menos margen negativo */
+  }
+}
+
 .card h3 {
   font-size: 1.25rem;
   font-weight: 600;
@@ -106,10 +164,25 @@ body {
   color: #e2e8f0;
 }
 
+@media (max-width: 768px) {
+  .card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem; /* Margen inferior reducido */
+  }
+}
+
 .card p {
   color: #cbd5e0;
   font-size: 0.95rem;
   margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .card p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem; /* Margen inferior reducido */
+    line-height: 1.4; /* Line height más compacto */
+  }
 }
 
 .project-image {
@@ -120,9 +193,22 @@ body {
   margin-bottom: 1rem;
 }
 
+@media (max-width: 768px) {
+  .project-image {
+    height: 140px; /* Imagen más pequeña */
+    margin-bottom: 0.5rem;
+  }
+}
+
 .tech-stack {
   font-size: 0.9rem;
   color: #a0aec0;
+}
+
+@media (max-width: 768px) {
+  .tech-stack {
+    font-size: 0.85rem; /* Texto más pequeño para aprovechar espacio */
+  }
 }
 
 .project-link {
@@ -144,12 +230,27 @@ body {
   margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+  .contact-form {
+    gap: 1rem; /* Gap más pequeño */
+    max-width: 100%;
+    margin: 0; /* Sin márgenes laterales */
+  }
+}
+
 .contact-form label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
   color: #e2e8f0;
   font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .contact-form label {
+    margin-bottom: 0.25rem; /* Margen más pequeño */
+    font-size: 0.9rem;
+  }
 }
 
 .contact-form input,
@@ -162,6 +263,14 @@ body {
   background-color: #2d3748;
   color: #e2e8f0;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.6rem; /* Padding más compacto */
+    font-size: 0.95rem;
+  }
 }
 
 .contact-form input:focus,
@@ -208,6 +317,13 @@ body {
   margin-top: 0.5rem;
 }
 
+@media (max-width: 768px) {
+  .status-message {
+    padding: 0.6rem; /* Padding más compacto */
+    margin-top: 0.25rem;
+  }
+}
+
 .status-message.success {
   background-color: rgba(72, 187, 120, 0.1);
   color: #68d391;
@@ -227,6 +343,12 @@ body {
   color: #e2e8f0;
 }
 
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 0; /* Footer más compacto */
+  }
+}
+
 .footer p {
   font-size: 0.9rem;
 }
@@ -237,8 +359,14 @@ body {
   margin-top: 0.5rem;
 }
 
+/* MÓVIL: Ajustes adicionales para máximo aprovechamiento */
 @media (max-width: 768px) {
-  .card-grid {
-    grid-template-columns: 1fr;
+  body {
+    font-size: 14px;
+  }
+  
+  /* Asegurar que ningún elemento tenga margins laterales excesivos */
+  * {
+    max-width: 100%;
   }
 }

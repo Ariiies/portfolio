@@ -29,27 +29,64 @@
   animation: modalFadeIn 0.3s ease-out;
 }
 
-/* Modal Close Button */
+/* ✅ BOTÓN DE CERRAR MÁS DISCRETO PERO FUNCIONAL */
 .modal-close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: transparent;
+  top: 0.75rem;
+  right: 0.75rem;
+  /* ✅ ÁREA CLICKEABLE PERO VISUALMENTE MÁS PEQUEÑA */
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin: 0;
   border: none;
+  border-radius: 0.5rem;
+  /* ✅ FONDO MÁS SUTIL EN DESKTOP */
+  background: rgba(160, 174, 192, 0.08);
   color: #a0aec0;
   cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  outline: none;
+  z-index: 10001;
+  transition: all 0.2s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
+/* ✅ HOVER MÁS SUTIL EN DESKTOP */
 .modal-close:hover {
-  background-color: rgba(99, 179, 237, 0.1);
-  color: #63b3ed;
-  transform: rotate(90deg);
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #f56565;
+  transform: scale(1.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* ✅ ESTADO ACTIVO */
+.modal-close:active {
+  background-color: rgba(239, 68, 68, 0.25);
+  transform: scale(0.95);
+  transition: all 0.1s ease;
+}
+
+/* ✅ FOCUS PARA ACCESIBILIDAD */
+.modal-close:focus {
+  outline: 2px solid #63b3ed;
+  outline-offset: 2px;
+}
+
+/* ✅ ÍCONO X */
+.modal-close svg {
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  transition: transform 0.2s ease;
+  fill: currentColor;
+}
+
+.modal-close:hover svg {
+  transform: rotate(90deg) scale(1.1);
 }
 
 /* Modal Animation */
@@ -94,7 +131,7 @@
   transform: none;
 }
 
-/* Responsive Modal */
+/* ✅ MÓVILES: SOLO LA X VISIBLE, SIN FONDO */
 @media (max-width: 768px) {
   .modal-overlay {
     padding: 0.5rem;
@@ -104,11 +141,69 @@
     padding: 1.5rem;
     border-radius: 0.75rem;
     max-height: 95vh;
+    /* ✅ MENOS PADDING-TOP PORQUE EL BOTÓN ES MÁS DISCRETO */
+    padding-top: 3rem;
   }
   
+  /* ✅ BOTÓN INVISIBLE EN MÓVILES - SOLO LA X */
   .modal-close {
     top: 0.75rem;
     right: 0.75rem;
+    width: 48px;
+    height: 48px;
+    /* ✅ SIN FONDO EN MÓVILES */
+    background: transparent;
+    border: none;
+    border-radius: 0;
+  }
+  
+  /* ✅ X MÁS GRANDE EN MÓVILES PARA COMPENSAR LA FALTA DE FONDO */
+  .modal-close svg {
+    width: 28px;
+    height: 28px;
+    /* ✅ COLOR MÁS VISIBLE EN MÓVILES */
+    color: #cbd5e0;
+  }
+  
+  /* ✅ HOVER TÁCTIL SIN FONDO */
+  .modal-close:active {
+    background-color: transparent;
+    transform: scale(0.9);
+  }
+  
+  /* ✅ EFECTO TÁCTIL SOLO EN LA X */
+  .modal-close:active svg {
+    color: #f56565;
+    transform: rotate(90deg) scale(1.2);
+  }
+}
+
+/* ✅ TOOLTIP SOLO PARA DESKTOP (MÁS PEQUEÑO) */
+@media (min-width: 769px) {
+  .modal-close::before {
+    content: 'Cerrar';
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(26, 32, 44, 0.9);
+    color: #e2e8f0;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    z-index: 10002;
+  }
+
+  .modal-close:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-2px);
   }
 }
 
@@ -116,3 +211,11 @@
 body.modal-open {
   overflow: hidden;
 }
+
+/* ✅ ÁREA DE DEPURACIÓN VISUAL (OPCIONAL - SOLO PARA DESARROLLO) */
+/* 
+.modal-close {
+  background: rgba(255, 0, 0, 0.3) !important;
+  border: 2px solid red !important;
+}
+*/
