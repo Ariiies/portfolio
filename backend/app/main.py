@@ -2,8 +2,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
-# === IMPORTACIONES RELATIVAS CONSISTENTES ===
-# Eliminamos la manipulación del sys.path y usamos solo importaciones relativas
 from .database.database import create_database_tables
 from .routers import messages, users, auth
 

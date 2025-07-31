@@ -7,7 +7,7 @@ import Portfolio from './components/Portfolio';
 import Login from './views/Login';
 import AdminPanel from './views/AdminPanel';
 import ProtectedRoute from './components/ProtectedRoute';
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider } from './context/authContext';
 
 // ===== TEST DE CONFIGURACIÓN (solo en desarrollo) =====
 if (import.meta.env.DEV) {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/authContext';
 import { buildApiUrl, getAuthFetchOptions, APP_CONFIG } from '../config/api';
 import '../styles/AdminPanel.css';
 

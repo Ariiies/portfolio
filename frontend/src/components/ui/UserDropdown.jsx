@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/authContext';
 import '../../styles/UserDropdown.css';
 
 const UserDropdown = () => {

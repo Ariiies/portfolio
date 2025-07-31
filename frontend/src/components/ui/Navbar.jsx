@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/authContext';
 import UserDropdown from './UserDropdown';
 import logoImage from '../../assets/img/logo2.png';
 import '../../styles/Navbar.css';
