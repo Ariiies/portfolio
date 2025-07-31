@@ -1,6 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
+import os
+from dotenv import load_dotenv
+
+# Cargar variables de entorno
+load_dotenv()
 
 from .database.database import create_database_tables
 from .routers import messages, users, auth
@@ -20,11 +25,30 @@ app = FastAPI(
     version="1.0.0"
 )
 
+# === CONFIGURACIÓN SEGURA DE CORS ===
+# Obtener la configuración de CORS desde variables de entorno
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")  # Vite dev server por defecto
+ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
+
+# Configurar orígenes permitidos según el entorno
+if ENVIRONMENT == "production":
+    allowed_origins = [FRONTEND_URL]
+    print(f"🔒 CORS configurado para PRODUCCIÓN. Origen permitido: {FRONTEND_URL}")
+else:
+    # En desarrollo, permitir tanto el servidor de Vite como localhost en diferentes puertos
+    allowed_origins = [
+        "http://localhost:5173",  # Vite dev server
+        "http://localhost:3000",  # React dev server alternativo
+        "http://127.0.0.1:5173",  # Dirección IP local
+        FRONTEND_URL  # URL personalizada si se define
+    ]
+    print(f"🔧 CORS configurado para DESARROLLO. Orígenes permitidos: {allowed_origins}")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], 
+    allow_origins=allowed_origins,  # ✅ Ahora es seguro y configurable
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],  # Métodos específicos
     allow_headers=["*"],
 )
 
@@ -36,14 +60,26 @@ app.include_router(auth.auth_router)
 # Ruta raíz
 @app.get("/", tags=["Root"])
 async def read_root():
-    return {"message": "Powered by FastAPI and SQLAlchemy"}
+    return {
+        "message": "Powered by FastAPI and SQLAlchemy",
+        "environment": ENVIRONMENT,
+        "cors_origins": allowed_origins if ENVIRONMENT == "development" else "Protected"
+    }
+
+# Endpoint para verificar configuración CORS (solo en desarrollo)
+@app.get("/debug/cors", tags=["Debug"])
+async def debug_cors():
+    if ENVIRONMENT != "development":
+        return {"error": "Este endpoint solo está disponible en desarrollo"}
+    
+    return {
+        "environment": ENVIRONMENT,
+        "frontend_url": FRONTEND_URL,
+        "allowed_origins": allowed_origins
+    }
 
 '''
- # antes se utilizava uvicorn.run directamente aquí, pero solo funcionaba en local
- o en produccion por problemas con las rutas de importacion.
-if __name__ == "__main__":
-    uvicorn.run('app.main:app', host="0.0.0.0", port=8000, reload=True)
+Para ejecutar la aplicación, ubícate en backend/ y usa el comando:
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 '''
-# Para ejecutar la aplicación, ubicate en backend/ y usa el comando:
-# uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 
