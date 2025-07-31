@@ -1,32 +1,30 @@
-# Etapa de construcción
-FROM node:18-alpine as build
+# Etapa 1: Construcción de la aplicación React
+FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-# Copiar archivos de dependencias
 COPY package*.json ./
+RUN npm install
 
-# Instalar dependencias
-RUN npm ci --only=production
-
-# Copiar código fuente
 COPY . .
 
-# Argumento para la URL del API
+# --- LÍNEAS NUEVAS ---
+# Declara un argumento que se puede pasar durante la construcción
 ARG VITE_API_URL
+# Asigna el argumento a una variable de entorno para que Vite la use
 ENV VITE_API_URL=$VITE_API_URL
+# --- FIN LÍNEAS NUEVAS ---
 
-# Construir la aplicación
 RUN npm run build
 
-# Etapa de producción
-FROM nginx:alpine
+# Etapa 2: Servir los archivos estáticos con Nginx
+FROM nginx:stable-alpine
 
-# ✅ LÍNEA CRÍTICA: Copiar configuración de nginx
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copiar los archivos construidos desde la etapa 'builder'
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Copiar archivos construidos
-COPY --from=build /app/dist /usr/share/nginx/html
+# Copiar la configuración de Nginx 
+# COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
