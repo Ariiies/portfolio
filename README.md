@@ -9,7 +9,7 @@
 
 ## 🌟 Live Demo
 
-Visit the live portfolio: [https://your-domain.com](https://your-domain.com)
+Visit the live portfolio: [https://portfolio-ngg0.onrender.com/](https://portfolio-ngg0.onrender.com/)
 
 ## 📋 Table of Contents
 
@@ -30,7 +30,7 @@ Visit the live portfolio: [https://your-domain.com](https://your-domain.com)
 
 This portfolio represents my professional journey as a **Computer Technologies Engineer** graduated from Universidad Autónoma de Baja California Sur (2021). It showcases my expertise in:
 
-- **Full-Stack Web Development** (Laravel, React)
+- **Full-Stack Web Development** (Laravel, React, FastApi, Flask, Django, HTML, CSS, JavaScript, PHP, etc.)
 - **Artificial Intelligence & Machine Learning** (Python, TensorFlow, Keras)
 - **Computer Vision & NLP** (OpenCV, scikit-learn)
 - **System Development & ERP Solutions**
@@ -67,6 +67,10 @@ This portfolio represents my professional journey as a **Computer Technologies E
 - **React 18.x** - Component-based UI library
 - **CSS3** - Modern styling with Flexbox/Grid
 - **JavaScript ES6+** - Modern JavaScript features
+
+### Backend
+- **Python** - Core backend language
+- **FastAPI** - High-performance API framework
 
 ### Development Tools
 - **Node.js** - JavaScript runtime
