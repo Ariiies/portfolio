@@ -9,7 +9,7 @@
 
 ## 🌟 Live Demo
 
-Visit the live portfolio: [https://portfolio-ngg0.onrender.com/](https://portfolio-ngg0.onrender.com/)
+Visit the live portfolio: [Aries.dev](https://portfolio-ngg0.onrender.com/)
 
 ## 📋 Table of Contents
 
@@ -139,14 +139,40 @@ mi-portafolio/
    http://localhost:5173
    ```
 
-## 💻 Usage
+   ## 💻 Usage
 
-### Development
-```bash
-npm run dev     # Start development server
-npm run build   # Build for production
-npm run preview # Preview production build
-```
+   To run the project locally:
+
+   ### Frontend
+
+   1. Navigate to the `frontend` directory:
+      ```bash
+      cd frontend
+      ```
+
+   2. Start the development server:
+      ```bash
+      npm run dev
+      ```
+
+   ### Backend
+
+   1. Navigate to the `backend` directory:
+      ```bash
+      cd backend
+      ```
+
+   2. Start the FastAPI server:
+      ```bash
+      uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+      ```
+
+   ### Development
+   ```bash
+   npm run dev     # Start development server
+   npm run build   # Build for production
+   npm run preview # Preview production build
+   ```
 
 ### Production Deployment
 ```bash
