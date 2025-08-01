@@ -1,0 +1,148 @@
+/* Cards de certificados */
+.certificate-card {
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+.certificate-card:hover, .certificate-card:focus {
+  box-shadow: 0 0 0 3px #63b3ed55;
+  transform: translateY(-2px) scale(1.02);
+  outline: none;
+}
+.certificate-card .cert-view-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #63b3ed;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: #232b3b;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.7rem;
+  transition: background 0.2s;
+}
+.certificate-card .cert-view-link:hover {
+  background: #63b3ed22;
+}
+
+/* Card expandida */
+.certificate-card.expanded {
+  max-width: 900px;      /* Antes: 600px */
+  margin: 2.5rem auto;   /* Un poco más de margen */
+  padding: 2.5rem 2rem;  /* Más padding */
+  text-align: center;
+  cursor: default;
+  box-shadow: 0 8px 40px #0006;
+  z-index: 10;
+  position: relative;
+  min-height: 400px;     /* Altura mínima mayor para dar sensación de amplitud */
+  animation: cert-expand 0.45s cubic-bezier(0.4, 0.2, 0.2, 1);
+  opacity: 1;
+  transform: scale(1);
+}
+
+@keyframes cert-expand {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(40px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.04) translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Nueva fila para el botón de volver */
+.cert-back-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+/* Botón volver */
+.cert-back-btn {
+  background: #232b3b;
+  color: #63b3ed;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  padding: 0.25rem 0.8rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0002;
+  transition: background 0.2s, transform 0.2s;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: unset;
+  min-height: unset;
+}
+.cert-back-btn:hover, .cert-back-btn:focus {
+  background: #63b3ed22;
+  outline: none;
+  transform: scale(1.05);
+}
+
+/* Visor de archivo */
+.cert-file-viewer {
+  display: block;
+  margin: 2rem auto 0 auto;
+  max-width: 100%;
+  max-height: 70vh;      /* Más alto para aprovechar el espacio */
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 16px #0003;
+  background: #fff;
+}
+
+/* Mensaje si no hay archivo */
+.cert-no-file {
+  color: #f56565;
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+/* Nueva clase para animación de salida */
+.certificate-card.leaving {
+  opacity: 0;
+  transform: scale(0.95) translateY(30px);
+  transition: opacity 0.25s, transform 0.25s;
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .certificate-card.expanded {
+    max-width: 98vw;
+    padding: 1.5rem 0.5rem;
+    min-height: 250px;
+  }
+  .cert-file-viewer {
+    max-height: 50vh;
+  }
+}
+@media (max-width: 768px) {
+  .certificate-card.expanded {
+    padding: 1rem 0.2rem;
+    margin: 1rem 0;
+    max-width: 100vw;
+    min-height: 180px;
+  }
+  .cert-file-viewer {
+    max-height: 40vh;
+  }
+  .cert-back-row {
+    justify-content: center;
+    margin-bottom: 0.7rem;
+  }
+  .cert-back-btn {
+    width: 90%;
+    font-size: 0.95rem;
+    padding: 0.3rem 0;
+    border-radius: 0.5rem;
+    justify-content: center;
+  }
+}
