@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/Certificates.css';
 import { useCertificate } from '../hooks/useCertificates';
+import ImageModal from './ui/ImageModal'; // importa el modal
 
 const Certificates = () => {
   const certificates = [
@@ -21,6 +22,7 @@ const Certificates = () => {
 
   const { selected, selectCertificate, clearSelection } = useCertificate();
   const [leaving, setLeaving] = useState(false);
+  const [modalImg, setModalImg] = useState(null);
 
   //handler para animar salida
   const handleBack = () => {
@@ -60,27 +62,21 @@ const Certificates = () => {
             <h3>{certificates[selected].title}</h3>
             <p>{certificates[selected].issuer} - {certificates[selected].year}</p>
             {certificates[selected].file ? (
-              certificates[selected].file.endsWith('.pdf') ? (
-                <iframe
-                  src={certificates[selected].file}
-                  title={certificates[selected].title}
-                  className="cert-file-viewer"
-                  frameBorder="0"
-                  allowFullScreen
-                />
-              ) : (
-                <img
-                  src={certificates[selected].file}
-                  alt={certificates[selected].title}
-                  className="cert-file-viewer"
-                />
-              )
+              <img
+                src={certificates[selected].file}
+                alt={certificates[selected].title}
+                className="cert-file-viewer"
+                style={{ cursor: 'zoom-in' }}
+                onClick={() => setModalImg(certificates[selected].file)}
+              />
             ) : (
               <p className="cert-no-file">No hay archivo disponible para este certificado.</p>
             )}
           </div>
         )}
       </div>
+      {/* Modal para ver imagen en grande */}
+      <ImageModal src={modalImg} alt="Certificado" onClose={() => setModalImg(null)} />
     </section>
   );
 };

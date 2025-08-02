@@ -5,7 +5,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background: rgba(20, 24, 31, 0.85); /* oscuro y transparentoso */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,27 +32,18 @@
 /* ✅ BOTÓN DE CERRAR MÁS DISCRETO PERO FUNCIONAL */
 .modal-close {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  /* ✅ ÁREA CLICKEABLE PERO VISUALMENTE MÁS PEQUEÑA */
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  margin: 0;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: transparent;
+  color: #e2e8f0;
   border: none;
-  border-radius: 0.5rem;
-  /* ✅ FONDO MÁS SUTIL EN DESKTOP */
-  background: rgba(160, 174, 192, 0.08);
-  color: #a0aec0;
+  font-size: 2rem;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  outline: none;
-  z-index: 10001;
-  transition: all 0.2s ease;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
+  opacity: 0.5;
+  transition: opacity 0.2s, color 0.2s;
+  z-index: 2;
+  padding: 0.1rem 0.6rem;
+  line-height: 1;
 }
 
 /* ✅ HOVER MÁS SUTIL EN DESKTOP */
@@ -131,79 +122,80 @@
   transform: none;
 }
 
-/* ✅ MÓVILES: SOLO LA X VISIBLE, SIN FONDO */
-@media (max-width: 768px) {
-  .modal-overlay {
-    padding: 0.5rem;
-  }
-  
-  .modal-content {
-    padding: 1.5rem;
-    border-radius: 0.75rem;
-    max-height: 95vh;
-    /* ✅ MENOS PADDING-TOP PORQUE EL BOTÓN ES MÁS DISCRETO */
-    padding-top: 3rem;
-  }
-  
-  /* ✅ BOTÓN INVISIBLE EN MÓVILES - SOLO LA X */
-  .modal-close {
-    top: 0.75rem;
-    right: 0.75rem;
-    width: 48px;
-    height: 48px;
-    /* ✅ SIN FONDO EN MÓVILES */
-    background: transparent;
-    border: none;
-    border-radius: 0;
-  }
-  
-  /* ✅ X MÁS GRANDE EN MÓVILES PARA COMPENSAR LA FALTA DE FONDO */
-  .modal-close svg {
-    width: 28px;
-    height: 28px;
-    /* ✅ COLOR MÁS VISIBLE EN MÓVILES */
-    color: #cbd5e0;
-  }
-  
-  /* ✅ HOVER TÁCTIL SIN FONDO */
-  .modal-close:active {
-    background-color: transparent;
-    transform: scale(0.9);
-  }
-  
-  /* ✅ EFECTO TÁCTIL SOLO EN LA X */
-  .modal-close:active svg {
-    color: #f56565;
-    transform: rotate(90deg) scale(1.2);
-  }
+/* Contenedor del modal de imagen */
+.image-modal-content {
+  position: relative;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 95vw;
+  max-height: 95vh;
+  justify-content: center;
 }
 
-/* ✅ TOOLTIP SOLO PARA DESKTOP (MÁS PEQUEÑO) */
-@media (min-width: 769px) {
-  .modal-close::before {
-    content: 'Cerrar';
-    position: absolute;
-    top: -2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(26, 32, 44, 0.9);
-    color: #e2e8f0;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    font-size: 0.7rem;
-    font-weight: 500;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.2s ease;
-    pointer-events: none;
-    z-index: 10002;
-  }
+/* Imagen grande en el modal */
+.modal-image {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 1rem;
+  box-shadow: none;
+  background: transparent;
+  border: none;
+  display: block;
+  transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
+  /* El zoom ahora se controla por inline style */
+}
 
-  .modal-close:hover::before {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(-2px);
+.modal-image.zoomed {
+  transform: scale(2) !important;
+  z-index: 10;
+  box-shadow: 0 8px 40px #000a;
+  cursor: zoom-out;
+  max-width: none;
+  max-height: none;
+}
+
+/* Botón de cerrar para modal de imagen */
+.image-modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(44, 62, 80, 0.7);
+  color: #e2e8f0;
+  border: none;
+  font-size: 1.7rem;
+  cursor: pointer;
+  opacity: 0.7;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: opacity 0.2s, background 0.2s, color 0.2s;
+  padding: 0;
+  line-height: 1;
+}
+.image-modal-close:hover, .image-modal-close:focus {
+  opacity: 1;
+  color: #63b3ed;
+  background: rgba(44, 62, 80, 0.95);
+  outline: none;
+}
+
+/* Responsive: botón más grande y cerca en móvil */
+@media (max-width: 768px) {
+  .image-modal-close {
+    top: 0.2rem;
+    right: 0.2rem;
+    width: 40px;
+    height: 40px;
+    font-size: 2rem;
   }
 }
 
