@@ -116,7 +116,10 @@ const TabNavigation = () => {
 
       {/* Contenido de la pestaña activa */}
       <div className="tab-content">
-        <div className="content-wrapper">
+        <div
+          className="content-wrapper slide-animate"
+          key={activeTab} 
+        >
           <ActiveComponent />
         </div>
       </div>

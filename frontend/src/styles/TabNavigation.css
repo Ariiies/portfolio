@@ -192,6 +192,39 @@
   transform: translateX(-50%);
 }
 
+/* Animación de fade para el cambio de tab */
+.fade-animate {
+  animation: fadeInTab 0.5s cubic-bezier(.4,2,.6,1);
+}
+
+@keyframes fadeInTab {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Animación tipo slide para el cambio de tab */
+.slide-animate {
+  animation: slideInTab 0.8s cubic-bezier(.4,1.5,.6,1);
+  will-change: transform, opacity;
+}
+
+@keyframes slideInTab {
+  from {
+    opacity: 0;
+    transform: translateX(80px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
 /* === RESPONSIVE DESIGN === */
 @media (max-width: 768px) {
   .tab-container {
