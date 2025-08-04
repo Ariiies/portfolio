@@ -46,7 +46,7 @@ else:
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=allowed_origins,  # ✅ Ahora es seguro y configurable
+    allow_origins=allowed_origins, 
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],  # Métodos específicos
     allow_headers=["*"],
@@ -61,7 +61,7 @@ app.include_router(auth.auth_router)
 @app.get("/", tags=["Root"])
 async def read_root():
     return {
-        "message": "Powered by FastAPI and SQLAlchemy",
+        "message": "Running and Powered by FastAPI",
         "environment": ENVIRONMENT,
         "cors_origins": allowed_origins if ENVIRONMENT == "development" else "Protected"
     }
