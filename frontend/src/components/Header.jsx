@@ -55,8 +55,8 @@ const Header = () => {
         <div className="hero-right">
           <h2 className="right-subtitle">Bienvenido a mi portafolio</h2>
           <p className="hero-description">
-            Mi nombre es Aries, soy un ingeniero en tecnología especializado en desarrollo web, 
-            inteligencia artificial y visión por computadora.
+            Mi nombre es Aries, soy ingeniero en tecnología especializado en desarrollo web, con habilidades en 
+            inteligencia artificial, visión por computadora  y NLP.
             <br/> <br/>
             Soy una persona apasionada por la programación y la creación de soluciones innovadoras que optimizan procesos y mejoran la experiencia del usuario.
             Cuento con conocimientos y experiencia en Python, JavaScript, PHP, Laravel, React, FastAPI y tecnologías de Machine Learning.
