@@ -204,6 +204,17 @@
   margin-bottom: 0;
 }
 
+/* Añade esto a tu archivo Navbar.css */
+.language-switcher-container {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-language-switcher {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
 .mobile-section-title {
   font-size: 0.9rem;
   font-weight: 600;

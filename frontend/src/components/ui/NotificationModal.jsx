@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Modal from './Modal';
 
 const NotificationModal = ({ 
@@ -9,6 +10,8 @@ const NotificationModal = ({
   message,
   showButtons = true 
 }) => {
+  const { t } = useTranslation();
+
   const getIcon = () => {
     switch (type) {
       case 'success':
@@ -52,11 +55,8 @@ const NotificationModal = ({
         
         {showButtons && (
           <div className="notification-actions">
-            <button 
-              className={`notification-button ${type}`}
-              onClick={onClose}
-            >
-              Entendido
+            <button className={`notification-button ${type}`} onClick={onClose}>
+              {t('notifications.close_button')}
             </button>
           </div>
         )}

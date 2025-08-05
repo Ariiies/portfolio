@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import About from './About';
 import Education from './Education';
 import Certificates from './Certificates';
@@ -8,15 +9,16 @@ import Contact from './Contact';
 import '../styles/TabNavigation.css';
 
 const TabNavigation = () => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('about');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const tabs = [
-    { id: 'about', label: 'Sobre Mí', component: About },
-    { id: 'education', label: 'Educación', component: Education },
-    { id: 'certificates', label: 'Certificados', component: Certificates },
-    { id: 'skills', label: 'Habilidades', component: Skills },
-    { id: 'projects', label: 'Proyectos', component: Projects },
+    { id: 'about', label: t('tabs.about'), component: About },
+    { id: 'education', label: t('tabs.education'), component: Education },
+    { id: 'certificates', label: t('tabs.certificates'), component: Certificates },
+    { id: 'skills', label: t('tabs.skills'), component: Skills },
+    { id: 'projects', label: t('tabs.projects'), component: Projects },
     /*{ id: 'contact', label: 'Contacto', component: Contact },*/
   ];
 
@@ -60,7 +62,7 @@ const TabNavigation = () => {
   }, []);
 
   const ActiveComponent = tabs.find(tab => tab.id === activeTab)?.component || About;
-  const activeTabLabel = tabs.find(tab => tab.id === activeTab)?.label || 'Sobre Mí';
+  const activeTabLabel = tabs.find(tab => tab.id === activeTab)?.label || t('tabs.about');
 
   return (
     <div className="tab-container">

@@ -1,13 +1,16 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Education = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="education" className="section">
-      <h2 className="section-title">Educación</h2>
+      <h2 className="section-title">{t('education.title')}</h2>
       <div className="card">
-        <h3>Ingeniería en Tecnologías Computacionales</h3>
-        <p>Universidad Autónoma de Baja California Sur</p>
-        <p>Especialización en Ciencias</p>
+        <h3>{t('education.degree')}</h3>
+        <p>{t('education.university')}</p>
+        <p>{t('education.specialization')}</p>
       </div>
     </section>
   );

@@ -1,0 +1,69 @@
+/* src/styles/LanguageSwitcher.css */
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  color: #e2e8f0;
+  font-size: 0.85rem; 
+}
+
+.language-switch .lang-label {
+  font-size: 0.82em;   
+  letter-spacing: 0.5px;
+  opacity: 0.85;
+  font-weight: 400;
+  padding: 0 2px;
+  user-select: none;
+  transition: color 0.2s;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;   
+  height: 18px;  
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #444;
+  transition: .3s;
+  border-radius: 18px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 3px;
+  bottom: 2.5px;
+  background-color: #fff;
+  transition: .3s;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px #0002;
+}
+
+input:checked + .slider {
+  background-color: #3182ce;
+}
+
+input:checked + .slider:before {
+  transform: translateX(15px);
+}
+
+.switch:hover .slider {
+  background-color: #555;
+}

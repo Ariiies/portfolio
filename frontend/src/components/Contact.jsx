@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import useSendMessage from '../hooks/sendMessage';
 import useModal from '../hooks/useModal';
 import useNotification from '../hooks/useNotification';
 import NotificationModal from './ui/NotificationModal';
 import '../styles/notifications.css';
 
-const Contact = ({ onClose }) => { // ← Recibir onClose como prop
+const Contact = ({ onClose }) => {
+  const { t } = useTranslation();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -33,8 +35,8 @@ const Contact = ({ onClose }) => { // ← Recibir onClose como prop
       // Mostrar notificación de éxito
       showNotification({
         type: 'success',
-        title: '¡Mensaje Enviado!',
-        message: 'Tu mensaje ha sido enviado correctamente. Te responderé pronto.',
+        title: t('contact.success_title'),
+        message: t('contact.success_message'),
         duration: 4000
       });
 
@@ -48,8 +50,8 @@ const Contact = ({ onClose }) => { // ← Recibir onClose como prop
       // Mostrar notificación de error
       showNotification({
         type: 'error',
-        title: 'Error al Enviar',
-        message: 'No se pudo enviar tu mensaje. Por favor, intenta de nuevo.',
+        title: t('contact.error_title'),
+        message: t('contact.error_message'),
         duration: 5000
       });
     }
@@ -58,44 +60,44 @@ const Contact = ({ onClose }) => { // ← Recibir onClose como prop
   return (
     <>
       <section id="contact" className="section">
-        <h2 className="section-title">Contacto</h2>
+        <h2 className="section-title">{t('contact.title')}</h2>
         
         <form onSubmit={handleSubmit} className="contact-form">
           <div>
-            <label htmlFor="name">Nombre</label>
+            <label htmlFor="name">{t('contact.name_label')}</label>
             <input
               type="text"
               id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              placeholder="Tu nombre"
+              placeholder={t('contact.name_placeholder')}
               disabled={isLoading}
             />
           </div>
 
           <div>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">{t('contact.email_label')}</label>
             <input
               type="email"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              placeholder="tu@email.com"
+              placeholder={t('contact.email_placeholder')}
               disabled={isLoading}
             />
           </div>
 
           <div>
-            <label htmlFor="message">Mensaje</label>
+            <label htmlFor="message">{t('contact.message_label')}</label>
             <textarea
               id="message"
               rows={4}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               required
-              placeholder="Tu mensaje..."
+              placeholder={t('contact.message_placeholder')}
               disabled={isLoading}
             />
           </div>
@@ -104,7 +106,7 @@ const Contact = ({ onClose }) => { // ← Recibir onClose como prop
             type="submit"
             disabled={isLoading || !name || !email || !message}
           >
-            {isLoading ? 'Enviando...' : 'Enviar Mensaje'}
+            {isLoading ? t('contact.submitting_button') : t('contact.submit_button')}
           </button>
         </form>
       </section>

@@ -1,0 +1,136 @@
+{
+  "header": {
+    "profile_alt": "Foto de perfil de Luis Aries Meza Castillo",
+    "name": "Luis Aries Meza Castillo",
+    "subtitle1": "🪪 Ingeniero en Tecnología Computacional",
+    "subtitle2": "🐍 PCAP - Python",
+    "location": "📍 Guadalajara, Jal. MX.",
+    "welcome": "Bienvenido a mi portafolio",
+    "description_p1": "Mi nombre es Aries, soy ingeniero en tecnología especializado en desarrollo web, con habilidades en inteligencia artificial, visión por computadora y NLP.",
+    "description_p2": "Soy una persona apasionada por la programación y la creación de soluciones innovadoras que optimizan procesos y mejoran la experiencia del usuario. Cuento con conocimientos y experiencia en Python, JavaScript, PHP, Laravel, React, FastAPI y tecnologías de Machine Learning.",
+    "modal_alt": "Foto de perfil"
+  },
+  "navbar": {
+    "logo_alt": "Logo de Aries.dev",
+    "logo_menu_alt": "Logo de Aries.dev - Menú",
+    "github_title": "Ver mi perfil de GitHub",
+    "linkedin_title": "Ver mi perfil de LinkedIn",
+    "download_cv_title": "Descargar CV",
+    "contact_title": "Contactar",
+    "contact_button": "Contactar",
+    "mobile_menu_follow": "Sígueme",
+    "mobile_menu_actions": "Acciones",
+    "mobile_menu_user": "Usuario",
+    "mobile_download_cv": "Descargar CV",
+    "mobile_contact": "Contactar"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "p1": "Soy Luis Aries Meza Castillo, un apasionado Ingeniero en Tecnologías Computacionales graduado de la Universidad Autónoma de Baja California Sur en el año 2021. Mi trayectoria profesional es una combinación de desarrollo de software pragmático y una profunda exploración en el fascinante campo de la Inteligencia Artificial.",
+    "p2": "Aprendí a programar en 2017 con C++ y Java, pero no fue sino hasta 2020 que con Python adquirí la pasión por la programación, creando software para análisis, machine learning y visión computacional. Mi carrera despegó en Maestros Joyeros, donde asumí el reto de desarrollar y mantener un sistema ERP a medida. Utilizando el framework Laravel y Livewire, no solo construí nuevos módulos y refactoricé código para optimizar el rendimiento, sino que también automaticé procesos de negocio cruciales. Esta experiencia me brindó una base sólida en el desarrollo full-stack y me enseñó a crear soluciones tecnológicas que responden directamente a las necesidades operativas de una empresa.",
+    "p3": "Si bien disfruto construyendo aplicaciones web robustas, también poseo una importante pasión por el potencial de la Inteligencia Artificial para interpretar el mundo. Esta curiosidad me ha llevado a desarrollar proyectos personales complejos donde pongo a prueba mis habilidades. Por ejemplo, he construido modelos de Procesamiento de Lenguaje Natural (NLP), como mi proyecto CorpusClassifier, capaz de clasificar documentos de texto con alta precisión utilizando técnicas como TF-IDF y redes neuronales con TensorFlow y Keras.",
+    "p4": "Además, me he adentrado en la Visión por Computadora con proyectos como DetectFrameAI, un sistema que detecta, clasifica y rastrea objetos en secuencias de video. Este proyecto fue un reto fascinante que me permitió trabajar a fondo con librerías como OpenCV y arquitecturas de redes neuronales como VGG16, manejando desde la segmentación de fotogramas hasta la anotación de los objetos detectados.",
+    "p5": "Mi enfoque para cada desafío se basa en un pensamiento lógico y estructurado, una cualidad que he fortalecido a lo largo de mi formación y que he validado con certificaciones clave como el PCAP (Certified Associate in Python Programming). Python es mi lenguaje principal, pero mi base de conocimientos es amplia, teniendo incluso nociones en el área de redes avalada por mis certificaciones CCNA.",
+    "p6": "Actualmente, estoy enfocado en el futuro y en el aprendizaje continuo. Me encuentro perfeccionando mi dominio del frontend moderno con React, explorando el mundo de la visualización y análisis de datos con Power BI, y adentrándome en las prácticas de DevOps a través de Docker. Mi objetivo es claro: combinar todas estas habilidades para diseñar y construir soluciones tecnológicas completas, que no solo sean funcionales y eficientes, sino también inteligentes y capaces de aportar un valor real y medible.",
+    "github_alt": "GitHub",
+    "linkedin_alt": "LinkedIn"
+  },
+  "tabs": {
+    "about": "Sobre Mí",
+    "education": "Educación",
+    "certificates": "Certificados",
+    "skills": "Habilidades",
+    "projects": "Proyectos"
+  },
+  "education": {
+    "title": "Educación",
+    "degree": "Ingeniería en Tecnologías Computacionales",
+    "university": "Universidad Autónoma de Baja California Sur",
+    "specialization": "Especialización en Ciencias"
+  },
+  "certificates": {
+    "title": "Certificados",
+    "view_button": "Ver",
+    "back_button": "← Volver",
+    "no_file": "No hay archivo disponible para este certificado.",
+    "modal_alt": "Certificado",
+    "zoom_title": "Usa la rueda del mouse para acercar/alejar"
+  },
+  "skills": {
+    "title": "Habilidades",
+    "languages": "Lenguajes de Programación",
+    "frameworks": "Frameworks & Librerías",
+    "tools": "Herramientas",
+    "cloud": "Cloud & Redes",
+    "databases": "Bases de Datos",
+    "english_level": "Inglés",
+    "in_progress": "en progreso",
+    "ccna_certs": "Certificaciones CCNA",
+    "b2_level": "Nivel B2"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "stack_label": "Stack",
+    "view_code_button": "Ver Código",
+    "list": {
+      "frameDetectAI": {
+        "title": "FrameDetectAI - Detección de Objetos con Computer Vision",
+        "description": "Un sistema de visión por computadora que detecta, clasifica y rastrea objetos en video. Extrae regiones de interés (ROI) y usa VGG16 para clasificación."
+      },
+      "corpusClassifier": {
+        "title": "CorpusClassifier - Clasificación de Texto con NLP",
+        "description": "Clasifica documentos del corpus Brown usando TF-IDF y redes neuronales. Incluye preprocesamiento y evaluación de modelos."
+      },
+      "portfolio": {
+        "title": "Portafolio web - Aplicación Full-Stack",
+        "description": "Este mismo portafolio web, muestra un resumen de mi perfil profesional, proyectos, habilidades y certificados."
+      },
+      "flasknotes": {
+        "title": "FlaskNotes - Gestión de Notas Web",
+        "description": "Aplicación web para gestión de notas que incluye búsqueda avanzada con TF-IDF y paginación."
+      },
+      "corpy": {
+        "title": "Corpy - Análisis de corpus de texto",
+        "description": "Librería minimalista de Python para el análisis de corpus de texto. Permite cargar, preprocesar y realizar un análisis cuantitativo de los textos y sus palabras."
+      },
+      "erp": {
+        "title": "Sistema ERP - Maestros Joyeros (Experiencia Profesional)",
+        "description": "Contribuciones a un ERP personalizado con Laravel y Livewire. Automatización de reportes, control de inventario y optimización de procesos."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contacto",
+    "name_label": "Nombre",
+    "email_label": "Email",
+    "message_label": "Mensaje",
+    "name_placeholder": "Tu nombre",
+    "email_placeholder": "tu@email.com",
+    "message_placeholder": "Tu mensaje...",
+    "submit_button": "Enviar Mensaje",
+    "submitting_button": "Enviando...",
+    "success_title": "¡Mensaje Enviado!",
+    "success_message": "Tu mensaje ha sido enviado correctamente. Te responderé pronto.",
+    "error_title": "Error al Enviar",
+    "error_message": "No se pudo enviar tu mensaje. Por favor, intenta de nuevo."
+  },
+  "footer": {
+    "copyright": "&copy; 2025 Luis Aries Meza Castillo. Todos los derechos reservados. (Hecho con React + Vite)",
+    "status_label": "Estado del backend"
+  },
+  "user_dropdown": {
+    "admin_badge": "Administrador",
+    "admin_panel": "Panel de Administración",
+    "logout": "Cerrar Sesión"
+  },
+  "notifications": {
+    "close_button": "Entendido"
+  },
+  "protected_route": {
+    "loading": "Verificando autenticación...",
+    "denied_title": "Acceso Denegado",
+    "denied_message": "No tienes permisos de administrador para acceder a esta sección.",
+    "back_link": "Volver al Portafolio"
+  }
+}
+

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../styles/Certificates.css';
 import { useCertificate } from '../hooks/useCertificates';
 import ImageModal from './ui/ImageModal'; // importa el modal
 
 const Certificates = () => {
+  const { t } = useTranslation();
   const certificates = [
     { title: 'PCAP-Certified Associate in Python Programming', issuer: 'Python Institute', year: 2021, file: '/certificates/pcap.png' },
     { title: 'JavaScript Essentials 1', issuer: 'Cisco Networking Academy', year: 2025, file: '/certificates/js.png' },
@@ -35,7 +37,7 @@ const Certificates = () => {
 
   return (
     <section id="certificates" className="section">
-      <h2 className="section-title">Certificados</h2>
+      <h2 className="section-title">{t('certificates.title')}</h2>
       <div className="card-grid">
         {selected === null ? (
           certificates.map((cert, index) => (
@@ -49,14 +51,14 @@ const Certificates = () => {
             >
               <h3>{cert.title}</h3>
               <p>{cert.issuer} - {cert.year}</p>
-              {cert.file && <span className="cert-view-link">Ver</span>}
+              {cert.file && <span className="cert-view-link">{t('certificates.view_button')}</span>}
             </div>
           ))
         ) : (
           <div className={`card certificate-card expanded${leaving ? ' leaving' : ''}`}>
             <div className="cert-back-row">
-              <button className="cert-back-btn" onClick={handleBack} aria-label="Volver">
-                ← Volver
+              <button className="cert-back-btn" onClick={handleBack} aria-label={t('certificates.back_button')}>
+                {t('certificates.back_button')}
               </button>
             </div>
             <h3>{certificates[selected].title}</h3>
@@ -70,13 +72,17 @@ const Certificates = () => {
                 onClick={() => setModalImg(certificates[selected].file)}
               />
             ) : (
-              <p className="cert-no-file">No hay archivo disponible para este certificado.</p>
+              <p className="cert-no-file">{t('certificates.no_file')}</p>
             )}
           </div>
         )}
       </div>
-      {/* Modal para ver imagen en grande */}
-      <ImageModal src={modalImg} alt="Certificado" onClose={() => setModalImg(null)} />
+      <ImageModal 
+        src={modalImg} 
+        alt={t('certificates.modal_alt')} 
+        onClose={() => setModalImg(null)} 
+        title={t('certificates.zoom_title')}
+      />
     </section>
   );
 };

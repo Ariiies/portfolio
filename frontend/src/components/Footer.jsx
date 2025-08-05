@@ -1,13 +1,15 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import useBackend from '../hooks/useBackend';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const { message } = useBackend();
 
   return (
     <footer className="footer">
-      <p>&copy; 2025 Luis Aries Meza Castillo. Todos los derechos reservados. (Made in React + Vite)</p>
-      <p className="status">Estado del backend: {message}</p>
+      <p>{t('footer.copyright')}</p>
+      <p className="status">{t('footer.status_label')}: {message}</p>
     </footer>
   );
 };
