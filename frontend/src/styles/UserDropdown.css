@@ -62,17 +62,21 @@
   top: 100%;
   right: 0;
   margin-top: 0.5rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e2e8f0;
+  background: #f9fafb; /* Fondo más claro */
+  border-radius: 14px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  border: 1px solid #cbd5e1;
   min-width: 280px;
   z-index: 1000;
   animation: slideDown 0.2s ease-out;
+  padding-bottom: 0.5rem;
 }
 
 .dropdown-header {
   padding: 1rem;
+  background: #e3e8f0; /* Color de fondo para el header */
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
 }
 
 .user-info {
@@ -100,19 +104,19 @@
 
 .admin-badge {
   display: inline-block;
-  background: #667eea;
-  color: white;
-  padding: 0.125rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.7rem;
-  font-weight: 500;
+  background: #4f46e5;
+  color: #fff;
+  padding: 0.15rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.7px;
 }
 
 .dropdown-divider {
   height: 1px;
-  background: #e2e8f0;
+  background: #cbd5e1;
   margin: 0;
 }
 
@@ -131,21 +135,35 @@
   text-align: left;
   color: #2d3748;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.18s;
+  border-radius: 6px;
 }
 
 .dropdown-item:hover {
-  background-color: #f7fafc;
+  background-color: #e3e8f0; /* Hover más visible */
+}
+
+.dropdown-item[href="/admin"] {
+  color: #3b2ae3; /* Admin panel: azul más intenso */
+  font-weight: 600;
+}
+
+.dropdown-item[href="/admin"]:hover {
+  background-color: #e3e8f0;
+  color: #241a7a; /* Admin panel: azul oscuro en hover */
 }
 
 .logout-item {
-  color: #e53e3e;
+  color: #c53030 !important; /* Rojo más oscuro y fuerte */
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .logout-item:hover {
-  background-color: #fed7d7;
+  background-color: #ffe5e5;
+  color: #a81c1c !important; /* Rojo aún más oscuro en hover */
 }
 
 /* Animaciones */
@@ -163,15 +181,25 @@
 /* Responsive */
 @media (max-width: 768px) {
   .user-dropdown-menu {
-    right: -1rem;
-    left: -1rem;
-    min-width: auto;
+    right: 0;
+    left: 0;
+    min-width: 100vw;
+    border-radius: 0 0 18px 18px;
+    margin-top: 0;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+    padding-bottom: 1rem;
   }
-  
+  .dropdown-header {
+    padding: 1rem 1.5rem;
+    font-size: 1.05rem;
+  }
+  .dropdown-item {
+    font-size: 1.05rem;
+    padding: 1rem 1.5rem;
+  }
   .user-name {
     display: none;
   }
-  
   .user-dropdown-toggle {
     padding: 0.5rem;
   }
