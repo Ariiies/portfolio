@@ -200,15 +200,17 @@ const AdminPanel = () => {
       {/* Header */}
       <header className="admin-header">
         <div className="header-content">
-          <h1 className="admin-title">Panel de Administración</h1>
-          <div className="header-info">
-            <span className="welcome-text">Bienvenido, {user?.name || user?.username}</span>
-            <span className="message-count">{messages.length} mensajes</span>
-            {APP_CONFIG.isDevelopment && (
-              <span style={{ fontSize: '0.7rem', color: '#888' }}>
-                ({APP_CONFIG.environment})
-              </span>
-            )}
+          <div className="header-main-info"> {/* Contenedor principal */}
+            <h1 className="admin-title">Panel de Administración</h1>
+            <div className="header-info">
+              <span className="welcome-text">Bienvenido, {user?.name || user?.username}</span>
+              <span className="message-count">{messages.length} mensajes</span>
+              {APP_CONFIG.isDevelopment && (
+                <span style={{ fontSize: '0.7rem', color: '#888' }}>
+                  ({APP_CONFIG.environment})
+                </span>
+              )}
+            </div>
           </div>
           <div className="header-actions">
             <a href="/" className="back-button">

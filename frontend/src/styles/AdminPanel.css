@@ -23,11 +23,31 @@
   margin: 0 auto;
 }
 
+/* NUEVO: Contenedor para el título y la info */
+.header-main-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem; /* Espacio entre el título y la línea de info */
+}
+
 .admin-title {
   margin: 0;
   color: #1a202c;
   font-size: 1.5rem;
   font-weight: 600;
+}
+
+/* NUEVO: Estilos para la línea de información */
+.header-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Espacio entre "Bienvenido" y el contador */
+  font-size: 0.9rem;
+}
+
+.welcome-text {
+  color: #4a5568; /* Color de texto más oscuro para legibilidad */
+  font-weight: 500;
 }
 
 .header-actions {
