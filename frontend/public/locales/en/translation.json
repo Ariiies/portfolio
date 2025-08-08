@@ -115,7 +115,7 @@
     "error_message": "Could not send your message. Please try again."
   },
   "footer": {
-    "copyright": "&copy; 2025 Luis Aries Meza Castillo. All rights reserved. (Made with React + Vite)",
+    "copyright": "© 2025 Luis Aries Meza Castillo. All rights reserved. (Made with React + Vite)",
     "status_label": "Backend status"
   },
   "user_dropdown": {
